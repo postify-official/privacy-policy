@@ -2,21 +2,624 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Privacy Policy</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Postify – Privacy Policy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f7f6f2;
+      --surface: #ffffff;
+      --ink: #1a1a1a;
+      --muted: #6b6b6b;
+      --accent: #0a66c2;
+      --border: #e3e0d8;
+      --tag-bg: #edf3fc;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 1.75;
+    }
+
+    header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 28px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-inner {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .logo-mark {
+      width: 36px;
+      height: 36px;
+      background: var(--accent);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .logo-mark svg { width: 20px; height: 20px; fill: #fff; }
+
+    .header-text h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.25rem;
+      font-weight: 400;
+      line-height: 1.2;
+    }
+
+    .header-text p {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    .wrapper {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 56px 24px 80px;
+    }
+
+    .hero {
+      margin-bottom: 56px;
+    }
+
+    .hero h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2.6rem;
+      font-weight: 400;
+      line-height: 1.15;
+      color: var(--ink);
+    }
+
+    .hero .meta {
+      display: flex;
+      gap: 16px;
+      margin-top: 16px;
+      flex-wrap: wrap;
+    }
+
+    .badge {
+      display: inline-block;
+      background: var(--tag-bg);
+      color: var(--accent);
+      font-size: 0.75rem;
+      font-weight: 500;
+      padding: 4px 12px;
+      border-radius: 100px;
+      letter-spacing: 0.02em;
+    }
+
+    .toc {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px 32px;
+      margin-bottom: 56px;
+    }
+
+    .toc h3 {
+      font-size: 0.7rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .toc ol {
+      padding-left: 18px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px 24px;
+    }
+
+    @media (max-width: 520px) {
+      .toc ol { grid-template-columns: 1fr; }
+    }
+
+    .toc ol li a {
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 0.88rem;
+    }
+
+    .toc ol li a:hover { text-decoration: underline; }
+
+    section {
+      margin-bottom: 48px;
+      scroll-margin-top: 100px;
+    }
+
+    section h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.55rem;
+      font-weight: 400;
+      margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    section h3 {
+      font-size: 0.95rem;
+      font-weight: 500;
+      margin: 24px 0 10px;
+      color: var(--ink);
+    }
+
+    p { margin-bottom: 14px; color: #2c2c2c; }
+    p:last-child { margin-bottom: 0; }
+
+    ul {
+      padding-left: 20px;
+      margin-bottom: 14px;
+    }
+
+    ul li {
+      margin-bottom: 6px;
+      font-size: 0.95rem;
+      color: #2c2c2c;
+    }
+
+    .note {
+      background: #f0f4fb;
+      border-left: 3px solid var(--accent);
+      border-radius: 0 8px 8px 0;
+      padding: 14px 18px;
+      font-size: 0.88rem;
+      color: #3a3a3a;
+      margin: 16px 0;
+    }
+
+    .warning {
+      background: #fff8e6;
+      border-left: 3px solid #f0a500;
+      border-radius: 0 8px 8px 0;
+      padding: 14px 18px;
+      font-size: 0.88rem;
+      color: #3a3a3a;
+      margin: 16px 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+      margin: 20px 0;
+    }
+
+    th {
+      background: #f0f0ec;
+      text-align: left;
+      padding: 10px 14px;
+      font-weight: 500;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+    }
+
+    td {
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      color: #2c2c2c;
+    }
+
+    td:first-child { font-weight: 500; white-space: nowrap; }
+
+    tr:last-child td { border-bottom: none; }
+
+    .contact-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px 32px;
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+    }
+
+    .contact-icon {
+      width: 44px;
+      height: 44px;
+      background: var(--tag-bg);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .contact-icon svg { width: 22px; height: 22px; stroke: var(--accent); fill: none; stroke-width: 1.8; }
+
+    .contact-card p { margin: 0; }
+    .contact-card a { color: var(--accent); text-decoration: none; font-weight: 500; }
+    .contact-card a:hover { text-decoration: underline; }
+    .contact-card small { color: var(--muted); font-size: 0.82rem; }
+
+    footer {
+      text-align: center;
+      padding: 32px 24px;
+      border-top: 1px solid var(--border);
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+  </style>
 </head>
-<body style="font-family: Arial, sans-serif; padding: 20px;">
-  <h1>Privacy Policy</h1>
+<body>
 
-  <p>
-    This page hosts the Privacy Policy for the Postify app.
-  </p>
+<header>
+  <div class="header-inner">
+    <div class="logo-mark">
+      <svg viewBox="0 0 24 24"><path d="M20 2H4C2.9 2 2 2.9 2 4v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+    </div>
+    <div class="header-text">
+      <h1>Postify</h1>
+      <p>by ASHdeveloper</p>
+    </div>
+  </div>
+</header>
 
-  <p>
-<a href="Postify_Privacy_Policy.pdf" target="_blank">
-      👉 Click here to view the Privacy Policy (PDF)
-    </a>
-  </p>
+<div class="wrapper">
+
+  <div class="hero">
+    <h2>Privacy Policy</h2>
+    <div class="meta">
+      <span class="badge">Last Updated: February 1, 2026</span>
+      <span class="badge">Effective for all users</span>
+    </div>
+    <p style="margin-top:20px;">
+      This Privacy Policy describes how ASHdeveloper ("we," "our," or "us") collects, uses, and discloses
+      information in connection with the Postify mobile application (the "App" or "Service"). By using Postify,
+      you acknowledge that you have read and understood this Privacy Policy and consent to the data practices described herein.
+    </p>
+    <p>
+      This policy covers all features of the Postify App, including LinkedIn profile optimization, AI content generation,
+      job follow-up messages, post scheduling, job application tracking, and LinkedIn growth analytics.
+    </p>
+  </div>
+
+  <div class="toc">
+    <h3>Table of Contents</h3>
+    <ol>
+      <li><a href="#s1">Introduction</a></li>
+      <li><a href="#s2">Information We Collect</a></li>
+      <li><a href="#s3">How We Use Your Information</a></li>
+      <li><a href="#s4">App Permissions</a></li>
+      <li><a href="#s5">Third-Party Services</a></li>
+      <li><a href="#s6">How We Share Your Information</a></li>
+      <li><a href="#s7">Subscription &amp; Payments</a></li>
+      <li><a href="#s8">Your Privacy Rights</a></li>
+      <li><a href="#s9">Data Security</a></li>
+      <li><a href="#s10">Data Retention</a></li>
+      <li><a href="#s11">Children's Privacy</a></li>
+      <li><a href="#s12">Legal Compliance</a></li>
+      <li><a href="#s13">Changes to This Policy</a></li>
+      <li><a href="#s14">Contact Information</a></li>
+    </ol>
+  </div>
+
+  <!-- 1 -->
+  <section id="s1">
+    <h2>1. Introduction</h2>
+    <p>We collect and process information to provide, maintain, and improve the Service. By using the Service, you acknowledge this Policy and consent to the data practices described below.</p>
+  </section>
+
+  <!-- 2 -->
+  <section id="s2">
+    <h2>2. Information We Collect</h2>
+    <p>We collect various categories of information to provide, maintain, and improve our Service.</p>
+
+    <h3>2.1 Personal Information</h3>
+    <p>When you sign in with LinkedIn using OAuth 2.0 (OpenID Connect), we receive the following basic profile information from LinkedIn:</p>
+    <ul>
+      <li>Full name (first name and last name)</li>
+      <li>Email address</li>
+      <li>Profile picture / avatar</li>
+      <li>Email verification status</li>
+    </ul>
+    <div class="note">An internal subject identifier (sub) is returned by LinkedIn's OpenID Connect endpoint and is used solely to associate your session with your account. It is not displayed to you or shared with any third party.</div>
+
+    <h3>2.2 LinkedIn Growth Statistics</h3>
+    <p>After signing in, users may manually enter their LinkedIn performance statistics to track their growth over time, including number of connections, profile view counts, and average post impressions.</p>
+    <div class="note">These statistics are entered manually by the user and are not automatically fetched from LinkedIn. They are stored locally on your device using SQLite (Room database) and are never transmitted to any server or third party.</div>
+
+    <h3>2.3 Resume Data</h3>
+    <p>When you use the resume upload feature, we collect and process information from your resume to generate an optimized LinkedIn profile. Your resume is sent to our AI service provider (OpenAI) which analyzes it and returns generated content stored in Firestore:</p>
+    <ul>
+      <li>LinkedIn Headline — AI-generated professional headline</li>
+      <li>LinkedIn About / Summary — AI-generated profile summary</li>
+      <li>LinkedIn Skills — AI-suggested list of professional skills</li>
+      <li>LinkedIn Post — AI-generated sample LinkedIn post</li>
+      <li>Resume Score — AI-evaluated resume quality score</li>
+      <li>Summary Strength — Assessment of the resume summary</li>
+      <li>User Role / Title — Identified job title or role</li>
+      <li>Projects — Extracted project titles and descriptions</li>
+      <li>Experience — Extracted work experience titles and descriptions</li>
+    </ul>
+    <div class="note">Your resume file is sent to OpenAI solely to generate the above profile content. The generated output is stored in Firestore for your convenience. Resume data is never used for advertising or marketing purposes.</div>
+
+    <h3>2.4 User-Generated Content</h3>
+    <p>When you use the App to create, edit, or publish content, we collect and store the following:</p>
+    <ul>
+      <li>Manually written LinkedIn posts (text entered by the user)</li>
+      <li>AI-generated LinkedIn posts (created via resume data or manual prompts)</li>
+      <li>Post titles, body content, and associated metadata (creation date, status, preferences)</li>
+      <li>Images uploaded by the user to enhance posts</li>
+      <li>Image URLs (stored as Cloudinary paths referenced in Firestore)</li>
+      <li>Draft posts and scheduled post content</li>
+    </ul>
+    <div class="note">Text content is stored in Firestore. Images are stored in Cloudinary. Content sent to OpenAI for generation is processed solely to produce the requested output and is not used for any other purpose.</div>
+
+    <h3>2.5 Job Follow-Up Messages</h3>
+    <p>When you use the job follow-up feature, you paste or enter a job description. The App combines the job description with your previously processed resume data and sends both to OpenAI to generate a personalized follow-up message. The generated message may be stored locally on your device for reference. This data is used solely to provide the follow-up message generation feature and is never shared with third parties for advertising or marketing purposes.</p>
+
+    <h3>2.6 Job Application Tracking</h3>
+    <p>The App includes a job tracking feature allowing you to manage and monitor your job applications. All core job tracking data is stored locally on your device using an SQLite database (Room) and is never transmitted to any server or third party. Data collected includes:</p>
+    <ul>
+      <li>Job title and company name</li>
+      <li>Company logo URL (if available)</li>
+      <li>Job location, type (Full-time, Part-time, Contract, Internship, Freelance), and work mode (Remote, Hybrid, On-site)</li>
+      <li>Salary range (optional)</li>
+      <li>Job description and job URL (optional)</li>
+      <li>Application date and current status</li>
+      <li>Recruiter name, email, and phone (optional)</li>
+      <li>Interview date and follow-up date (optional)</li>
+      <li>Reminder settings</li>
+      <li>Personal notes and comments</li>
+    </ul>
+
+    <h3>AI-Generated Emails Within Job Tracking</h3>
+    <p>When you use AI-powered email features inside the Job Tracking screen, the App sends certain job tracking data to OpenAI to generate a personalized email:</p>
+    <ul>
+      <li><strong>Follow-Up Email</strong> — sends job title, company name, recruiter name, days since application, and your LinkedIn profile data.</li>
+      <li><strong>Thank-You Email</strong> — sends job title, company name, recruiter name, interview type, and your LinkedIn profile data.</li>
+      <li><strong>Salary Negotiation Email</strong> — sends job title, company name, recruiter name, and your LinkedIn profile data.</li>
+    </ul>
+    <p>Generated emails are displayed in a preview dialog and are not automatically stored. Data sent to OpenAI is processed solely to generate the requested email and is not used for model training by default, in accordance with OpenAI's API usage policy.</p>
+    <div class="note">For users without an active subscription, a rewarded advertisement (via Google AdMob) may be displayed before the AI-generated email is shown. Subscribing removes all advertisements.</div>
+
+    <h3>2.7 Scheduled Posts &amp; Publishing</h3>
+    <p>When you create or schedule a post, the following data is stored in Firestore and/or Cloudinary: post title and content, post type, scheduled date and time, publishing status, image URLs, Cloudinary public IDs, and LinkedIn asset URN (returned after publishing).</p>
+    <div class="warning">Images are uploaded as-is from your device gallery. We do not strip EXIF metadata before upload, so any metadata embedded in the image (such as device information) may be transmitted to Cloudinary.</div>
+
+    <h3>2.8 Notification Data</h3>
+    <p>The App stores and triggers the following types of notifications, with records kept in Firestore: notification ID, title, description, status, timestamp, associated image URL, and associated post ID. Notification types include post status updates, LinkedIn growth stat reminders, and job tracking reminders.</p>
+
+    <h3>2.9 Usage and Diagnostic Data</h3>
+    <p>We collect certain technical data automatically through Firebase Analytics and Firebase Crashlytics to monitor app performance and improve reliability, including crash reports, error logs, app performance diagnostics, and general usage patterns.</p>
+
+    <h3>2.10 Advertising Data</h3>
+    <p>Postify is a free app supported by advertisements served through Google AdMob. The following ad types may be displayed: Banner Ads, Interstitial Ads, and Rewarded Ads. To serve ads, Google AdMob may collect the Google Advertising ID (GAID), device information, IP address for general location, and app usage data for ad frequency capping and fraud prevention.</p>
+    <p>Ads are served as non-personalized. You can opt out via: <em>Device Settings → Google → Ads → Delete Advertising ID or Opt out of Ads Personalization</em>. Purchasing a monthly subscription removes all advertisements permanently.</p>
+  </section>
+
+  <!-- 3 -->
+  <section id="s3">
+    <h2>3. How We Use Your Information</h2>
+    <table>
+      <thead>
+        <tr><th>Purpose</th><th>Description</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>App Functionality</td><td>To provide all core features including LinkedIn sign-in, profile optimization, AI content generation, job follow-ups, post scheduling and publishing, job application tracking, and LinkedIn growth analytics.</td></tr>
+        <tr><td>AI Content Generation</td><td>Resume data and user-entered job descriptions are sent to OpenAI (ChatGPT API) to generate LinkedIn profile content, posts, and personalized follow-up messages.</td></tr>
+        <tr><td>AI Email Generation</td><td>Job tracking data is sent to OpenAI to generate personalized follow-up, thank-you, and salary negotiation emails. Generated emails are shown in a preview only and not automatically stored.</td></tr>
+        <tr><td>Content Storage &amp; Sync</td><td>User-generated content, scheduled posts, notification records, and resume-generated profile data are stored in Firestore for cloud synchronization.</td></tr>
+        <tr><td>Local-Only Storage</td><td>Job application tracking data and LinkedIn growth statistics are stored exclusively on your device using SQLite (Room database) and never uploaded to any server.</td></tr>
+        <tr><td>Image Storage</td><td>User-uploaded images are sent to Cloudinary for storage and delivery. EXIF metadata embedded in the image may be transmitted along with the file.</td></tr>
+        <tr><td>Authentication &amp; Session</td><td>LinkedIn OAuth 2.0 is used for secure sign-in via WebView. Your LinkedIn access token and basic session state are stored in EncryptedSharedPreferences on your device.</td></tr>
+        <tr><td>Scheduled Notifications</td><td>The App triggers local device notifications for post publishing status, LinkedIn growth stat entry reminders, and job interview/follow-up reminders.</td></tr>
+        <tr><td>Analytics &amp; Improvement</td><td>Firebase Analytics collects anonymized usage data to help us understand feature adoption and improve the App.</td></tr>
+        <tr><td>Crash Reporting</td><td>Firebase Crashlytics automatically collects crash reports and diagnostics to help us identify and resolve technical issues.</td></tr>
+        <tr><td>Advertising</td><td>Google AdMob displays non-personalized advertisements. A monthly subscription removes all ads permanently.</td></tr>
+        <tr><td>Subscription Management</td><td>Google Play Billing processes subscription payments. Subscription status is stored solely to determine whether ads should be displayed.</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- 4 -->
+  <section id="s4">
+    <h2>4. App Permissions</h2>
+    <p>The App may request the following device permissions to enable core functionality. You can manage or revoke permissions at any time through your device settings.</p>
+    <table>
+      <thead>
+        <tr><th>Permission</th><th>Purpose</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Photos / Media / Files</td><td>Required to select and upload images from your device gallery to enhance LinkedIn posts. Images are uploaded to Cloudinary as-is.</td></tr>
+        <tr><td>Notifications</td><td>Used to send local notifications for post publishing updates, LinkedIn growth stat reminders, and job interview / follow-up reminders.</td></tr>
+        <tr><td>Internet Access</td><td>Required for LinkedIn OAuth sign-in, AI content generation (OpenAI API), Firestore data sync, Cloudinary image upload, AdMob ads, and publishing posts to LinkedIn.</td></tr>
+        <tr><td>WebView (LinkedIn OAuth)</td><td>An in-app WebView is used exclusively for the LinkedIn OAuth 2.0 sign-in flow. Session cookies used during this flow are managed by the WebView and are not stored or shared by the App.</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- 5 -->
+  <section id="s5">
+    <h2>5. Third-Party Services</h2>
+    <p>We integrate the following third-party services to operate and improve Postify. Each service processes data in accordance with its own privacy policy.</p>
+
+    <h3>AI Content Generation</h3>
+    <p><strong>OpenAI (ChatGPT API)</strong> — Processes resume data, user-entered prompts, and job tracking data to generate LinkedIn profile content, posts, personalized follow-up messages, thank-you emails, and salary negotiation emails. Data is sent securely and used only for the requested generation task.</p>
+
+    <h3>Analytics</h3>
+    <p><strong>Firebase Analytics</strong> — Collects anonymized app usage data to help us understand user behavior, monitor feature adoption, and improve the App.</p>
+
+    <h3>Crash Reporting</h3>
+    <p><strong>Firebase Crashlytics</strong> — Collects crash reports and diagnostic data to help us identify and resolve technical issues and improve App stability.</p>
+
+    <h3>Cloud &amp; Data Storage</h3>
+    <p><strong>Firebase / Firestore</strong> — Stores user-generated content, post data, resume-generated suggestions, notification records, and app preferences.</p>
+    <p><strong>Cloudinary</strong> — Stores and delivers user-uploaded images. Image URLs are stored in Firestore for reference within the App.</p>
+
+    <h3>Advertising</h3>
+    <p><strong>Google AdMob</strong> — Displays non-personalized advertisements. AdMob may collect the Google Advertising ID (GAID) and device information for ad frequency capping, fraud prevention, and aggregated reporting. Ads are served without behavioral profiling. Users can opt out via device settings. Purchasing a subscription removes all ads permanently.</p>
+
+    <h3>Authentication &amp; Publishing</h3>
+    <p><strong>LinkedIn (OAuth 2.0)</strong> — Used for secure sign-in via an in-app WebView and to publish posts directly to LinkedIn on your behalf. Session cookies during sign-in are handled by the WebView only and are not stored by the App. Your LinkedIn access token is stored securely in EncryptedSharedPreferences on your device.</p>
+
+    <h3>Payments</h3>
+    <p><strong>Google Play Billing</strong> — Processes monthly subscription payments to remove ads. We do not directly handle or store any payment card information. All payment processing is managed securely by Google Play.</p>
+  </section>
+
+  <!-- 6 -->
+  <section id="s6">
+    <h2>6. How We Share Your Information</h2>
+    <p>We respect your privacy and only share your data where strictly necessary to operate the Service.</p>
+
+    <h3>6.1 Service Providers</h3>
+    <p>We share limited data with trusted service providers including OpenAI, Firebase/Firestore, Cloudinary, Google AdMob, Google Play Billing, and LinkedIn — solely to the extent required to operate the features described in this policy.</p>
+    <ul>
+      <li><strong>OpenAI</strong> — Receives resume content, job descriptions, and job tracking data to generate profile content, posts, and emails. Per OpenAI's API policy, data submitted via the API is not used to train OpenAI models by default.</li>
+      <li><strong>Firebase / Firestore</strong> — Stores structured user data. Job tracking and LinkedIn stats are stored locally only and never sent to Firestore.</li>
+      <li><strong>Cloudinary</strong> — Stores and serves user-uploaded images along with any EXIF metadata embedded in the files.</li>
+      <li><strong>Google AdMob</strong> — May collect the GAID to display non-personalized ads to users without a subscription.</li>
+      <li><strong>Google Play Billing</strong> — Processes subscription payments securely. We do not receive or store payment card details.</li>
+      <li><strong>LinkedIn</strong> — Receives your OAuth access token and post content when you publish directly to LinkedIn from the App.</li>
+    </ul>
+
+    <h3>6.2 LinkedIn Integration</h3>
+    <p>When you sign in with LinkedIn or publish content through the App, certain information (such as your name, email address, profile picture, and post content) is shared with LinkedIn to enable authentication and publishing functionality, in accordance with LinkedIn's privacy policy.</p>
+
+    <h3>6.3 Legal Requirements</h3>
+    <p>We may disclose your information when required by law, legal process, litigation, or a valid governmental request, or when necessary to protect our rights, property, or the safety of our users.</p>
+    <p><strong>We do not sell your personal information to any third party, and we never share your data for advertising purposes beyond what is described in this policy.</strong></p>
+  </section>
+
+  <!-- 7 -->
+  <section id="s7">
+    <h2>7. Subscription &amp; Payments</h2>
+    <p>Postify is free to use. The App displays advertisements to all users via Google AdMob. Users may purchase a monthly subscription through Google Play Billing solely to remove advertisements. The subscription does not unlock any additional premium features.</p>
+    <ul>
+      <li>We do not directly collect, store, or process payment card information.</li>
+      <li>All billing, invoicing, and payment security is managed by Google Play.</li>
+      <li>Subscription status (active or inactive) is stored only to determine whether ads should be displayed.</li>
+      <li>Cancelling your subscription will re-enable advertisements in the App, including rewarded ads.</li>
+      <li>Refund requests are handled in accordance with Google Play's refund policy.</li>
+    </ul>
+  </section>
+
+  <!-- 8 -->
+  <section id="s8">
+    <h2>8. Your Privacy Rights</h2>
+    <p>Depending on your jurisdiction, you may have certain rights regarding your personal information. You may exercise these rights by contacting us at <a href="mailto:developerashraf13@gmail.com">developerashraf13@gmail.com</a>.</p>
+    <table>
+      <thead>
+        <tr><th>Right</th><th>Description</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Access</td><td>You may request access to all personal data we hold about you, including profile information, resume data, generated content, job tracking records, and LinkedIn stats.</td></tr>
+        <tr><td>Deletion</td><td>You may request deletion of all your data, including personal information, user-generated content, images, resume data, and job tracking records, subject to applicable legal obligations.</td></tr>
+      </tbody>
+    </table>
+    <p>We will respond in accordance with applicable data protection laws within a reasonable timeframe.</p>
+  </section>
+
+  <!-- 9 -->
+  <section id="s9">
+    <h2>9. Data Security</h2>
+    <p>We implement industry-standard technical and organizational security measures to protect your information from unauthorized access, disclosure, alteration, or destruction.</p>
+    <ul>
+      <li><strong>Encryption in Transit:</strong> All data transmitted between the App and servers uses HTTPS/TLS protocols.</li>
+      <li><strong>Firestore Encryption:</strong> Data stored in Firestore benefits from Google's built-in server-side encryption at rest.</li>
+      <li><strong>Cloudinary Encryption:</strong> Images stored in Cloudinary are protected by Cloudinary's built-in encryption and access controls.</li>
+      <li><strong>EncryptedSharedPreferences:</strong> Your LinkedIn access token, login state, and app preferences are stored locally using Android's EncryptedSharedPreferences (AES-256 encryption).</li>
+      <li><strong>Local SQLite Database:</strong> Job tracking and LinkedIn growth stats are stored in a local SQLite (Room) database, protected by Android's app sandboxing.</li>
+      <li><strong>Firestore Security Rules:</strong> Strict rules ensure each user can only access their own data.</li>
+      <li><strong>LinkedIn OAuth Security:</strong> Sign-in uses the industry-standard OAuth 2.0 protocol. We never store your LinkedIn password.</li>
+      <li><strong>OpenAI Data Processing:</strong> Data sent to OpenAI is processed under OpenAI's API usage policies. OpenAI does not use API data to train their models by default.</li>
+      <li><strong>EXIF Metadata Notice:</strong> Images uploaded from your gallery may contain embedded EXIF metadata transmitted to Cloudinary as part of the image file.</li>
+      <li><strong>Secure Payments:</strong> All payment processing is handled exclusively by Google Play Billing. We never store payment card details.</li>
+    </ul>
+    <div class="warning">While we strive to protect your information, no method of transmission or electronic storage is 100% secure. We are committed to protecting your data to the best of our ability and will notify affected users in the event of a data breach as required by applicable law.</div>
+  </section>
+
+  <!-- 10 -->
+  <section id="s10">
+    <h2>10. Data Retention</h2>
+    <p>We retain your personal information only for as long as necessary to fulfill the purposes outlined in this Privacy Policy, unless a longer retention period is required or permitted by law.</p>
+    <ul>
+      <li><strong>Account &amp; Profile Data:</strong> Retained in Firestore while your account is active.</li>
+      <li><strong>User-Generated Content:</strong> Posts, drafts, and scheduled content stored in Firestore until deleted by you.</li>
+      <li><strong>Resume-Generated Data:</strong> AI-generated profile content stored in Firestore until deleted by you.</li>
+      <li><strong>Job Tracking Data:</strong> Stored locally on your device (SQLite). Deleted when you remove entries or uninstall the App.</li>
+      <li><strong>AI-Generated Emails:</strong> Displayed in a preview dialog only; not automatically stored on your device or any server.</li>
+      <li><strong>LinkedIn Growth Stats:</strong> Stored locally on your device (SQLite). Deleted when you remove entries or uninstall the App.</li>
+      <li><strong>Images (Cloudinary):</strong> Retained until you delete the associated post or your account.</li>
+      <li><strong>Analytics &amp; Crash Data:</strong> Retained per Firebase's standard data retention policies.</li>
+      <li><strong>Subscription Status:</strong> Retained only while needed to manage ad display settings.</li>
+    </ul>
+    <p>When your data is no longer needed, it will be securely deleted or anonymized. You may request deletion of your personal information at any time by contacting us at <a href="mailto:developerashraf13@gmail.com">developerashraf13@gmail.com</a>.</p>
+  </section>
+
+  <!-- 11 -->
+  <section id="s11">
+    <h2>11. Children's Privacy</h2>
+    <p>Postify is intended for users aged 18 and older. It is not directed at children under the age of 13 (or the applicable age of digital consent in your jurisdiction). We do not knowingly collect personal information from children.</p>
+    <p>If we become aware that we have inadvertently collected personal information from a child without verifiable parental consent, we will take prompt steps to delete that information. If you believe we have collected information from a child, please contact us immediately at <a href="mailto:developerashraf13@gmail.com">developerashraf13@gmail.com</a>.</p>
+  </section>
+
+  <!-- 12 -->
+  <section id="s12">
+    <h2>12. Legal Compliance</h2>
+    <p>This Privacy Policy is designed to comply with applicable data protection laws and regulations, including:</p>
+    <ul>
+      <li><strong>GDPR</strong> (General Data Protection Regulation) — For users in the European Economic Area.</li>
+      <li><strong>CCPA</strong> (California Consumer Privacy Act) — For California residents.</li>
+      <li><strong>Google Play Developer Policy</strong> — All data safety and privacy requirements as mandated by Google Play.</li>
+      <li><strong>Other Applicable Laws</strong> — We comply with data protection laws in all jurisdictions where we operate.</li>
+    </ul>
+  </section>
+
+  <!-- 13 -->
+  <section id="s13">
+    <h2>13. Changes to This Privacy Policy</h2>
+    <p>We may update this Privacy Policy from time to time to reflect changes in our practices, technology, legal requirements, or new features added to the App. When we make material changes, we will update the Last Updated date at the top of this policy and, where appropriate, notify you through the App.</p>
+    <p>Your continued use of the App after any changes to this Privacy Policy constitutes your acceptance of the updated terms. We encourage you to review this policy periodically.</p>
+  </section>
+
+  <!-- 14 -->
+  <section id="s14">
+    <h2>14. Contact Information</h2>
+    <div class="contact-card">
+      <div class="contact-icon">
+        <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      </div>
+      <div>
+        <p><strong>Developer:</strong> ASHdeveloper</p>
+        <p><strong>Email:</strong> <a href="mailto:developerashraf13@gmail.com">developerashraf13@gmail.com</a></p>
+        <p style="margin-top:8px;"><small>We will make every effort to respond to your inquiry in a timely manner and within any timeframes required by applicable law.</small></p>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <p>© 2026 ASHdeveloper. All rights reserved.</p>
+  <p style="margin-top:4px;">This document is for informational purposes and does not constitute legal advice.</p>
+</footer>
+
 </body>
 </html>
-
